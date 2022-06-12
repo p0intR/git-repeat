@@ -41,7 +41,7 @@ and jQuery's serialize() this falls more under customization than implementation
 Depending on your installation method git-repeat is available as:
 ```
 user@host:~$ git-repeat 
-user@host:~$ python -m git-repeat 
+user@host:~$ python -m git_repeat.main
 user@host:~/git-repeat/src$ python -m git_repeat.main 
 ```
 Initial help page and supported parameters:
