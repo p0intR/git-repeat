@@ -359,4 +359,4 @@ FILE	src/core/i18n/en.xml	|<?xml version="1.0" encoding="utf-8" ?>
 git-repeat is licensed under the GPLv3. See LICENSE.md
 
 ## Repository
-You find the [git repository](https://github.com/p0ntR/git-repeat) at GitHub.
+You find the [git repository](https://github.com/p0intR/git-repeat) at GitHub.
