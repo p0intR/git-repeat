@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="git-repeat",
-    version="0.1.0",
+    version="0.1.4",
     author="p0intR",
     description="Remove repetitive tasks from your development workflow by using git diffs to replicate work already done",
     license="GPLv3",

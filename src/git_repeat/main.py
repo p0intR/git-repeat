@@ -11,12 +11,13 @@
 # You should have received a copy of the GNU General Public License along with git-repeat.
 # If not, see <https://www.gnu.org/licenses/>.
 
+import os
 import sys
 import argparse
 import logging
 from .helper import actions
 
-VERSION = '0.1.0'
+VERSION = '0.1.4'
 RECIPE_VERSION = '1.0'
 
 
@@ -105,6 +106,10 @@ def main():
         print_help()
         sys.exit(1)
 
+    if args.version:
+        version_info()
+        sys.exit(1)
+
     try:
         # logging
         logger = logging.getLogger("git-repeat")
@@ -120,10 +125,7 @@ def main():
         logger.setLevel(args.loglevel)
 
         # actions
-        if args.version:
-            version_info()
-
-        elif args.subparser == 'run':
+        if args.subparser == 'run':
             actions.run(args.rev_from, args.rev_to, args.repo, args.replacements, args.encoding, args.exclude, args.include, args.dry_run, RECIPE_VERSION)
 
         elif args.subparser == 'recipe':
@@ -141,6 +143,12 @@ def main():
 
     except FileNotFoundError as fe:
         logger.error(fe)
+        sys.exit(1)
+
+    except BrokenPipeError as bp:
+        logger.debug(bp)
+        devnull = os.open(os.devnull, os.O_WRONLY)
+        os.dup2(devnull, sys.stdout.fileno())
         sys.exit(1)
 
 
